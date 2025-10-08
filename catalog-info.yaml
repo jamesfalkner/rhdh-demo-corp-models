@@ -334,7 +334,7 @@ spec:
   type: service
   lifecycle: production
   owner: ai-platform-team
-  system: llm-catalog
+  system: ai-platform
   links:
     - url: https://console.redhat.com/openshift/ai/models/claude-3-5-sonnet/chat
       title: "Chat Completion API"
@@ -369,7 +369,7 @@ spec:
   type: service
   lifecycle: production
   owner: ai-platform-team
-  system: llm-catalog
+  system: ai-platform
   links:
     - url: https://console.redhat.com/openshift/ai/models/gpt-4o/chat
       title: "Chat Completion API"
@@ -404,7 +404,7 @@ spec:
   type: service
   lifecycle: production
   owner: ai-platform-team
-  system: llm-catalog
+  system: ai-platform
   links:
     - url: https://console.redhat.com/openshift/ai/models/llama-3-1-70b/chat
       title: "Chat Completion API"
@@ -439,7 +439,7 @@ spec:
   type: service
   lifecycle: production
   owner: ai-platform-team
-  system: llm-catalog
+  system: ai-platform
   links:
     - url: https://console.redhat.com/openshift/ai/models/gemini-1-5-pro/chat
       title: "Chat Completion API"
@@ -474,7 +474,7 @@ spec:
   type: service
   lifecycle: production
   owner: ai-platform-team
-  system: llm-catalog
+  system: ai-platform
   links:
     - url: https://console.redhat.com/openshift/ai/models/mistral-7b-instruct/chat
       title: "Chat Completion API"
@@ -510,7 +510,7 @@ spec:
   type: service
   lifecycle: production
   owner: ai-platform-team
-  system: llm-catalog
+  system: ai-platform
   links:
     - url: https://console.redhat.com/openshift/ai/models/codellama-34b/chat
       title: "Chat Completion API"
@@ -545,7 +545,7 @@ spec:
   type: service
   lifecycle: production
   owner: ai-platform-team
-  system: llm-catalog
+  system: ai-platform
   links:
     - url: https://console.redhat.com/openshift/ai/models/qwen-2-5-72b/chat
       title: "Chat Completion API"
@@ -580,7 +580,7 @@ spec:
   type: service
   lifecycle: production
   owner: ai-platform-team
-  system: llm-catalog
+  system: ai-platform
   links:
     - url: https://console.redhat.com/openshift/ai/models/phi-3-medium/chat
       title: "Chat Completion API"
@@ -616,7 +616,7 @@ spec:
   type: service
   lifecycle: production
   owner: ai-platform-team
-  system: llm-catalog
+  system: ai-platform
   links:
     - url: https://console.redhat.com/openshift/ai/models/deepseek-coder-33b/chat
       title: "Chat Completion API"
@@ -652,7 +652,7 @@ spec:
   type: service
   lifecycle: production
   owner: ai-platform-team
-  system: llm-catalog
+  system: ai-platform
   links:
     - url: https://console.redhat.com/openshift/ai/models/mixtral-8x7b-instruct/chat
       title: "Chat Completion API"
@@ -684,7 +684,7 @@ spec:
   type: openapi
   lifecycle: production
   owner: ai-platform-team
-  system: llm-catalog
+  system: ai-platform
   definition: |
     openapi: 3.0.0
     info:
@@ -789,7 +789,7 @@ spec:
   type: openapi
   lifecycle: production
   owner: ai-platform-team
-  system: llm-catalog
+  system: ai-platform
   definition: |
     openapi: 3.0.0
     info:
@@ -909,7 +909,7 @@ spec:
   type: openapi
   lifecycle: production
   owner: ai-platform-team
-  system: llm-catalog
+  system: ai-platform
   definition: |
     openapi: 3.0.0
     info:
@@ -1020,7 +1020,7 @@ spec:
   type: openapi
   lifecycle: production
   owner: ai-platform-team
-  system: llm-catalog
+  system: ai-platform
   definition: |
     openapi: 3.0.0
     info:
@@ -1140,7 +1140,7 @@ spec:
   type: openapi
   lifecycle: production
   owner: ai-platform-team
-  system: llm-catalog
+  system: ai-platform
   definition: |
     openapi: 3.0.0
     info:
@@ -1246,7 +1246,7 @@ spec:
   type: openapi
   lifecycle: production
   owner: ai-platform-team
-  system: llm-catalog
+  system: ai-platform
   definition: |
     openapi: 3.0.0
     info:
@@ -1357,7 +1357,7 @@ spec:
   type: openapi
   lifecycle: production
   owner: ai-platform-team
-  system: llm-catalog
+  system: ai-platform
   definition: |
     openapi: 3.0.0
     info:
@@ -1467,7 +1467,7 @@ spec:
   type: openapi
   lifecycle: production
   owner: ai-platform-team
-  system: llm-catalog
+  system: ai-platform
   definition: |
     openapi: 3.0.0
     info:
@@ -1576,7 +1576,7 @@ spec:
   type: openapi
   lifecycle: production
   owner: ai-platform-team
-  system: llm-catalog
+  system: ai-platform
   definition: |
     openapi: 3.0.0
     info:
@@ -1686,7 +1686,7 @@ spec:
   type: openapi
   lifecycle: production
   owner: ai-platform-team
-  system: llm-catalog
+  system: ai-platform
   definition: |
     openapi: 3.0.0
     info:
