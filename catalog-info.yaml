@@ -316,7 +316,6 @@ metadata:
   title: "LLM Models Catalog"
   description: "A comprehensive catalog of Large Language Models available for enterprise use"
   tags:
-    - llm
     - ai
     - machine-learning
     - enterprise
