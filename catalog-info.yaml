@@ -292,6 +292,24 @@ spec:
 
 ---
 apiVersion: backstage.io/v1alpha1
+kind: System
+metadata:
+  name: ai-platform
+  title: "AI Platform"
+  description: "Enterprise AI/ML platform providing Large Language Models, machine learning infrastructure, and AI services"
+  tags:
+    - ai
+    - machine-learning
+    - platform
+    - enterprise
+    - llm
+  annotations:
+    backstage.io/managed-by-location: file:./catalog-info.yaml
+spec:
+  owner: platform-team
+
+---
+apiVersion: backstage.io/v1alpha1
 kind: Component
 metadata:
   name: llm-catalog
