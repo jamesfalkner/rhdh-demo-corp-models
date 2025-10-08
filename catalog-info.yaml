@@ -292,7 +292,7 @@ spec:
 
 ---
 apiVersion: backstage.io/v1alpha1
-kind: LLM
+kind: Component
 metadata:
   name: llm-catalog
   title: "LLM Models Catalog"
@@ -313,7 +313,7 @@ spec:
 
 ---
 apiVersion: backstage.io/v1alpha1
-kind: LLM
+kind: Component
 metadata:
   name: claude-3-5-sonnet
   title: "Claude 3.5 Sonnet"
@@ -348,7 +348,7 @@ spec:
 
 ---
 apiVersion: backstage.io/v1alpha1
-kind: LLM
+kind: Component
 metadata:
   name: gpt-4o
   title: "GPT-4o"
@@ -383,7 +383,7 @@ spec:
 
 ---
 apiVersion: backstage.io/v1alpha1
-kind: LLM
+kind: Component
 metadata:
   name: llama-3-1-70b
   title: "Llama 3.1 70B"
@@ -418,7 +418,7 @@ spec:
 
 ---
 apiVersion: backstage.io/v1alpha1
-kind: LLM
+kind: Component
 metadata:
   name: gemini-1-5-pro
   title: "Gemini 1.5 Pro"
@@ -453,7 +453,7 @@ spec:
 
 ---
 apiVersion: backstage.io/v1alpha1
-kind: LLM
+kind: Component
 metadata:
   name: mistral-7b-instruct
   title: "Mistral 7B Instruct"
@@ -488,7 +488,7 @@ spec:
 
 ---
 apiVersion: backstage.io/v1alpha1
-kind: LLM
+kind: Component
 metadata:
   name: codellama-34b
   title: "CodeLlama 34B"
@@ -524,7 +524,7 @@ spec:
 
 ---
 apiVersion: backstage.io/v1alpha1
-kind: LLM
+kind: Component
 metadata:
   name: qwen-2-5-72b
   title: "Qwen 2.5 72B"
@@ -559,7 +559,7 @@ spec:
 
 ---
 apiVersion: backstage.io/v1alpha1
-kind: LLM
+kind: Component
 metadata:
   name: phi-3-medium
   title: "Phi-3 Medium"
@@ -594,7 +594,7 @@ spec:
 
 ---
 apiVersion: backstage.io/v1alpha1
-kind: LLM
+kind: Component
 metadata:
   name: deepseek-coder-33b
   title: "DeepSeek Coder 33B"
@@ -630,7 +630,7 @@ spec:
 
 ---
 apiVersion: backstage.io/v1alpha1
-kind: LLM
+kind: Component
 metadata:
   name: mixtral-8x7b-instruct
   title: "Mixtral 8x7B Instruct"
