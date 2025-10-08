@@ -1,0 +1,1777 @@
+apiVersion: backstage.io/v1alpha1
+kind: Group
+metadata:
+  name: platform-team
+  title: "Platform Team"
+  description: "Cross-functional platform team responsible for core infrastructure, developer experience, and platform services"
+  tags:
+    - platform
+    - infrastructure
+    - developer-experience
+    - cross-functional
+  annotations:
+    backstage.io/managed-by-location: file:./catalog-info.yaml
+spec:
+  type: team
+  children: []
+  members:
+    - platform-lead
+    - platform-engineer-1
+    - platform-engineer-2
+    - devops-engineer
+    - sre-engineer
+
+---
+apiVersion: backstage.io/v1alpha1
+kind: Group
+metadata:
+  name: ai-platform-team
+  title: "AI Platform Team"
+  description: "Specialized team focused on AI/ML infrastructure, model management, and machine learning platform services"
+  tags:
+    - ai
+    - machine-learning
+    - mlops
+    - model-management
+    - specialized
+  annotations:
+    backstage.io/managed-by-location: file:./catalog-info.yaml
+spec:
+  type: team
+  children: []
+  members:
+    - ai-platform-lead
+    - ml-engineer-1
+    - ml-engineer-2
+    - data-engineer
+    - mlops-engineer
+    - ai-researcher
+
+---
+apiVersion: backstage.io/v1alpha1
+kind: User
+metadata:
+  name: platform-lead
+  title: "Platform Lead"
+  description: "Technical lead for the platform team, responsible for architecture decisions and team coordination"
+  tags:
+    - platform
+    - leadership
+    - architecture
+    - technical-lead
+  annotations:
+    backstage.io/managed-by-location: file:./catalog-info.yaml
+spec:
+  profile:
+    displayName: "Sarah Chen"
+    email: "sarah.chen@company.com"
+    picture: "https://example.com/avatars/sarah-chen.jpg"
+  memberOf:
+    - platform-team
+
+---
+apiVersion: backstage.io/v1alpha1
+kind: User
+metadata:
+  name: platform-engineer-1
+  title: "Platform Engineer"
+  description: "Senior platform engineer focused on infrastructure automation and developer tooling"
+  tags:
+    - platform
+    - infrastructure
+    - automation
+    - senior
+  annotations:
+    backstage.io/managed-by-location: file:./catalog-info.yaml
+spec:
+  profile:
+    displayName: "Michael Rodriguez"
+    email: "michael.rodriguez@company.com"
+    picture: "https://example.com/avatars/michael-rodriguez.jpg"
+  memberOf:
+    - platform-team
+
+---
+apiVersion: backstage.io/v1alpha1
+kind: User
+metadata:
+  name: platform-engineer-2
+  title: "Platform Engineer"
+  description: "Platform engineer specializing in container orchestration and service mesh technologies"
+  tags:
+    - platform
+    - containers
+    - orchestration
+    - service-mesh
+  annotations:
+    backstage.io/managed-by-location: file:./catalog-info.yaml
+spec:
+  profile:
+    displayName: "Emily Johnson"
+    email: "emily.johnson@company.com"
+    picture: "https://example.com/avatars/emily-johnson.jpg"
+  memberOf:
+    - platform-team
+
+---
+apiVersion: backstage.io/v1alpha1
+kind: User
+metadata:
+  name: devops-engineer
+  title: "DevOps Engineer"
+  description: "DevOps engineer responsible for CI/CD pipelines, deployment automation, and infrastructure monitoring"
+  tags:
+    - devops
+    - cicd
+    - automation
+    - monitoring
+  annotations:
+    backstage.io/managed-by-location: file:./catalog-info.yaml
+spec:
+  profile:
+    displayName: "David Kim"
+    email: "david.kim@company.com"
+    picture: "https://example.com/avatars/david-kim.jpg"
+  memberOf:
+    - platform-team
+
+---
+apiVersion: backstage.io/v1alpha1
+kind: User
+metadata:
+  name: sre-engineer
+  title: "Site Reliability Engineer"
+  description: "SRE focused on system reliability, incident response, and performance optimization"
+  tags:
+    - sre
+    - reliability
+    - incident-response
+    - performance
+  annotations:
+    backstage.io/managed-by-location: file:./catalog-info.yaml
+spec:
+  profile:
+    displayName: "Lisa Wang"
+    email: "lisa.wang@company.com"
+    picture: "https://example.com/avatars/lisa-wang.jpg"
+  memberOf:
+    - platform-team
+
+---
+apiVersion: backstage.io/v1alpha1
+kind: User
+metadata:
+  name: ai-platform-lead
+  title: "AI Platform Lead"
+  description: "Technical lead for AI/ML platform initiatives, responsible for model deployment strategies and ML infrastructure"
+  tags:
+    - ai
+    - machine-learning
+    - leadership
+    - mlops
+    - technical-lead
+  annotations:
+    backstage.io/managed-by-location: file:./catalog-info.yaml
+spec:
+  profile:
+    displayName: "Alex Thompson"
+    email: "alex.thompson@company.com"
+    picture: "https://example.com/avatars/alex-thompson.jpg"
+  memberOf:
+    - ai-platform-team
+
+---
+apiVersion: backstage.io/v1alpha1
+kind: User
+metadata:
+  name: ml-engineer-1
+  title: "ML Engineer"
+  description: "Machine learning engineer specializing in model training, optimization, and deployment pipelines"
+  tags:
+    - machine-learning
+    - model-training
+    - optimization
+    - deployment
+  annotations:
+    backstage.io/managed-by-location: file:./catalog-info.yaml
+spec:
+  profile:
+    displayName: "Priya Patel"
+    email: "priya.patel@company.com"
+    picture: "https://example.com/avatars/priya-patel.jpg"
+  memberOf:
+    - ai-platform-team
+
+---
+apiVersion: backstage.io/v1alpha1
+kind: User
+metadata:
+  name: ml-engineer-2
+  title: "ML Engineer"
+  description: "ML engineer focused on model serving, inference optimization, and production ML systems"
+  tags:
+    - machine-learning
+    - model-serving
+    - inference
+    - production
+  annotations:
+    backstage.io/managed-by-location: file:./catalog-info.yaml
+spec:
+  profile:
+    displayName: "James Wilson"
+    email: "james.wilson@company.com"
+    picture: "https://example.com/avatars/james-wilson.jpg"
+  memberOf:
+    - ai-platform-team
+
+---
+apiVersion: backstage.io/v1alpha1
+kind: User
+metadata:
+  name: data-engineer
+  title: "Data Engineer"
+  description: "Data engineer responsible for data pipelines, ETL processes, and data infrastructure for ML workloads"
+  tags:
+    - data-engineering
+    - etl
+    - data-pipelines
+    - infrastructure
+  annotations:
+    backstage.io/managed-by-location: file:./catalog-info.yaml
+spec:
+  profile:
+    displayName: "Maria Garcia"
+    email: "maria.garcia@company.com"
+    picture: "https://example.com/avatars/maria-garcia.jpg"
+  memberOf:
+    - ai-platform-team
+
+---
+apiVersion: backstage.io/v1alpha1
+kind: User
+metadata:
+  name: mlops-engineer
+  title: "MLOps Engineer"
+  description: "MLOps engineer focused on machine learning operations, model lifecycle management, and ML infrastructure automation"
+  tags:
+    - mlops
+    - model-lifecycle
+    - automation
+    - operations
+  annotations:
+    backstage.io/managed-by-location: file:./catalog-info.yaml
+spec:
+  profile:
+    displayName: "Robert Chen"
+    email: "robert.chen@company.com"
+    picture: "https://example.com/avatars/robert-chen.jpg"
+  memberOf:
+    - ai-platform-team
+
+---
+apiVersion: backstage.io/v1alpha1
+kind: User
+metadata:
+  name: ai-researcher
+  title: "AI Researcher"
+  description: "AI researcher focused on model evaluation, performance benchmarking, and emerging AI technologies"
+  tags:
+    - ai-research
+    - model-evaluation
+    - benchmarking
+    - research
+  annotations:
+    backstage.io/managed-by-location: file:./catalog-info.yaml
+spec:
+  profile:
+    displayName: "Dr. Anna Kowalski"
+    email: "anna.kowalski@company.com"
+    picture: "https://example.com/avatars/anna-kowalski.jpg"
+  memberOf:
+    - ai-platform-team
+
+---
+apiVersion: backstage.io/v1alpha1
+kind: LLM
+metadata:
+  name: llm-catalog
+  title: "LLM Models Catalog"
+  description: "A comprehensive catalog of Large Language Models available for enterprise use"
+  tags:
+    - llm
+    - ai
+    - machine-learning
+    - enterprise
+    - openshift-ai
+  annotations:
+    backstage.io/managed-by-location: file:./catalog-info.yaml
+spec:
+  type: service
+  lifecycle: production
+  owner: platform-team
+  system: ai-platform
+
+---
+apiVersion: backstage.io/v1alpha1
+kind: LLM
+metadata:
+  name: claude-3-5-sonnet
+  title: "Claude 3.5 Sonnet"
+  description: "Anthropic's flagship model offering exceptional reasoning capabilities, code generation, and multilingual support. Optimized for complex reasoning tasks and creative writing."
+  tags:
+    - llm
+    - anthropic
+    - reasoning
+    - code-generation
+    - multilingual
+    - enterprise-ready
+    - chat-completion
+  annotations:
+    backstage.io/managed-by-location: file:./catalog-info.yaml
+    openshift.ai/model-family: claude
+    openshift.ai/model-version: 3.5-sonnet
+spec:
+  type: service
+  lifecycle: production
+  owner: ai-platform-team
+  system: llm-catalog
+  links:
+    - url: https://console.redhat.com/openshift/ai/models/claude-3-5-sonnet/chat
+      title: "Chat Completion API"
+      icon: chat
+    - url: https://docs.anthropic.com/claude/docs
+      title: "Anthropic Documentation"
+      icon: docs
+    - url: https://console.redhat.com/openshift/ai/models/claude-3-5-sonnet/metrics
+      title: "Usage Metrics"
+      icon: analytics
+
+---
+apiVersion: backstage.io/v1alpha1
+kind: LLM
+metadata:
+  name: gpt-4o
+  title: "GPT-4o"
+  description: "OpenAI's most advanced multimodal model with vision capabilities, enhanced reasoning, and improved efficiency. Supports text, image, and audio inputs for comprehensive AI interactions."
+  tags:
+    - llm
+    - openai
+    - multimodal
+    - vision
+    - reasoning
+    - chat-completion
+    - enterprise-ready
+  annotations:
+    backstage.io/managed-by-location: file:./catalog-info.yaml
+    openshift.ai/model-family: gpt
+    openshift.ai/model-version: 4o
+spec:
+  type: service
+  lifecycle: production
+  owner: ai-platform-team
+  system: llm-catalog
+  links:
+    - url: https://console.redhat.com/openshift/ai/models/gpt-4o/chat
+      title: "Chat Completion API"
+      icon: chat
+    - url: https://platform.openai.com/docs/models/gpt-4o
+      title: "OpenAI Documentation"
+      icon: docs
+    - url: https://console.redhat.com/openshift/ai/models/gpt-4o/playground
+      title: "Model Playground"
+      icon: play
+
+---
+apiVersion: backstage.io/v1alpha1
+kind: LLM
+metadata:
+  name: llama-3-1-70b
+  title: "Llama 3.1 70B"
+  description: "Meta's large-scale language model with 70 billion parameters, offering strong performance in code generation, mathematical reasoning, and general conversation. Open-source and enterprise-friendly."
+  tags:
+    - llm
+    - meta
+    - open-source
+    - code-generation
+    - mathematical-reasoning
+    - chat-completion
+    - self-hosted
+  annotations:
+    backstage.io/managed-by-location: file:./catalog-info.yaml
+    openshift.ai/model-family: llama
+    openshift.ai/model-version: 3.1-70b
+spec:
+  type: service
+  lifecycle: production
+  owner: ai-platform-team
+  system: llm-catalog
+  links:
+    - url: https://console.redhat.com/openshift/ai/models/llama-3-1-70b/chat
+      title: "Chat Completion API"
+      icon: chat
+    - url: https://ai.meta.com/llama/
+      title: "Meta AI Documentation"
+      icon: docs
+    - url: https://console.redhat.com/openshift/ai/models/llama-3-1-70b/deploy
+      title: "Deployment Guide"
+      icon: deployment
+
+---
+apiVersion: backstage.io/v1alpha1
+kind: LLM
+metadata:
+  name: gemini-1-5-pro
+  title: "Gemini 1.5 Pro"
+  description: "Google's advanced multimodal AI model with exceptional context length and reasoning capabilities. Optimized for complex analysis, code understanding, and creative tasks with support for multiple modalities."
+  tags:
+    - llm
+    - google
+    - multimodal
+    - long-context
+    - code-analysis
+    - creative-tasks
+    - chat-completion
+  annotations:
+    backstage.io/managed-by-location: file:./catalog-info.yaml
+    openshift.ai/model-family: gemini
+    openshift.ai/model-version: 1.5-pro
+spec:
+  type: service
+  lifecycle: production
+  owner: ai-platform-team
+  system: llm-catalog
+  links:
+    - url: https://console.redhat.com/openshift/ai/models/gemini-1-5-pro/chat
+      title: "Chat Completion API"
+      icon: chat
+    - url: https://ai.google.dev/docs
+      title: "Google AI Documentation"
+      icon: docs
+    - url: https://console.redhat.com/openshift/ai/models/gemini-1-5-pro/examples
+      title: "Usage Examples"
+      icon: code
+
+---
+apiVersion: backstage.io/v1alpha1
+kind: LLM
+metadata:
+  name: mistral-7b-instruct
+  title: "Mistral 7B Instruct"
+  description: "Efficient and powerful instruction-tuned model from Mistral AI. Optimized for following instructions, code generation, and conversational AI with excellent performance-to-size ratio."
+  tags:
+    - llm
+    - mistral
+    - instruction-tuned
+    - code-generation
+    - efficient
+    - chat-completion
+    - open-source
+  annotations:
+    backstage.io/managed-by-location: file:./catalog-info.yaml
+    openshift.ai/model-family: mistral
+    openshift.ai/model-version: 7b-instruct
+spec:
+  type: service
+  lifecycle: production
+  owner: ai-platform-team
+  system: llm-catalog
+  links:
+    - url: https://console.redhat.com/openshift/ai/models/mistral-7b-instruct/chat
+      title: "Chat Completion API"
+      icon: chat
+    - url: https://docs.mistral.ai/
+      title: "Mistral Documentation"
+      icon: docs
+    - url: https://console.redhat.com/openshift/ai/models/mistral-7b-instruct/benchmarks
+      title: "Performance Benchmarks"
+      icon: chart
+
+---
+apiVersion: backstage.io/v1alpha1
+kind: LLM
+metadata:
+  name: codellama-34b
+  title: "CodeLlama 34B"
+  description: "Meta's specialized code generation model with 34 billion parameters. Designed specifically for code completion, debugging, and software development tasks with support for multiple programming languages."
+  tags:
+    - llm
+    - meta
+    - code-generation
+    - programming
+    - debugging
+    - multi-language
+    - chat-completion
+    - developer-tools
+  annotations:
+    backstage.io/managed-by-location: file:./catalog-info.yaml
+    openshift.ai/model-family: codellama
+    openshift.ai/model-version: 34b
+spec:
+  type: service
+  lifecycle: production
+  owner: ai-platform-team
+  system: llm-catalog
+  links:
+    - url: https://console.redhat.com/openshift/ai/models/codellama-34b/chat
+      title: "Chat Completion API"
+      icon: chat
+    - url: https://ai.meta.com/blog/codellama-large-language-model-for-code/
+      title: "CodeLlama Documentation"
+      icon: docs
+    - url: https://console.redhat.com/openshift/ai/models/codellama-34b/integrations
+      title: "IDE Integrations"
+      icon: extension
+
+---
+apiVersion: backstage.io/v1alpha1
+kind: LLM
+metadata:
+  name: qwen-2-5-72b
+  title: "Qwen 2.5 72B"
+  description: "Alibaba's advanced language model with strong multilingual capabilities and reasoning skills. Optimized for Chinese and English text processing with excellent performance in mathematical and logical reasoning."
+  tags:
+    - llm
+    - alibaba
+    - multilingual
+    - chinese
+    - mathematical-reasoning
+    - chat-completion
+    - enterprise-ready
+  annotations:
+    backstage.io/managed-by-location: file:./catalog-info.yaml
+    openshift.ai/model-family: qwen
+    openshift.ai/model-version: 2.5-72b
+spec:
+  type: service
+  lifecycle: production
+  owner: ai-platform-team
+  system: llm-catalog
+  links:
+    - url: https://console.redhat.com/openshift/ai/models/qwen-2-5-72b/chat
+      title: "Chat Completion API"
+      icon: chat
+    - url: https://qwen.readthedocs.io/
+      title: "Qwen Documentation"
+      icon: docs
+    - url: https://console.redhat.com/openshift/ai/models/qwen-2-5-72b/languages
+      title: "Supported Languages"
+      icon: language
+
+---
+apiVersion: backstage.io/v1alpha1
+kind: LLM
+metadata:
+  name: phi-3-medium
+  title: "Phi-3 Medium"
+  description: "Microsoft's efficient language model optimized for mobile and edge deployment. Provides excellent performance for conversational AI, code generation, and reasoning tasks with minimal resource requirements."
+  tags:
+    - llm
+    - microsoft
+    - efficient
+    - mobile
+    - edge-computing
+    - chat-completion
+    - resource-optimized
+  annotations:
+    backstage.io/managed-by-location: file:./catalog-info.yaml
+    openshift.ai/model-family: phi
+    openshift.ai/model-version: 3-medium
+spec:
+  type: service
+  lifecycle: production
+  owner: ai-platform-team
+  system: llm-catalog
+  links:
+    - url: https://console.redhat.com/openshift/ai/models/phi-3-medium/chat
+      title: "Chat Completion API"
+      icon: chat
+    - url: https://azure.microsoft.com/en-us/blog/introducing-phi-3-redefining-whats-possible-with-slms/
+      title: "Microsoft Documentation"
+      icon: docs
+    - url: https://console.redhat.com/openshift/ai/models/phi-3-medium/deployment
+      title: "Edge Deployment Guide"
+      icon: deployment
+
+---
+apiVersion: backstage.io/v1alpha1
+kind: LLM
+metadata:
+  name: deepseek-coder-33b
+  title: "DeepSeek Coder 33B"
+  description: "Specialized code generation model with advanced programming capabilities. Trained on extensive codebases and optimized for software development, debugging, and code explanation tasks."
+  tags:
+    - llm
+    - deepseek
+    - code-generation
+    - programming
+    - debugging
+    - software-development
+    - chat-completion
+    - specialized
+  annotations:
+    backstage.io/managed-by-location: file:./catalog-info.yaml
+    openshift.ai/model-family: deepseek-coder
+    openshift.ai/model-version: 33b
+spec:
+  type: service
+  lifecycle: production
+  owner: ai-platform-team
+  system: llm-catalog
+  links:
+    - url: https://console.redhat.com/openshift/ai/models/deepseek-coder-33b/chat
+      title: "Chat Completion API"
+      icon: chat
+    - url: https://github.com/deepseek-ai/DeepSeek-Coder
+      title: "DeepSeek Documentation"
+      icon: docs
+    - url: https://console.redhat.com/openshift/ai/models/deepseek-coder-33b/examples
+      title: "Code Examples"
+      icon: code
+
+---
+apiVersion: backstage.io/v1alpha1
+kind: LLM
+metadata:
+  name: mixtral-8x7b-instruct
+  title: "Mixtral 8x7B Instruct"
+  description: "Mistral's mixture-of-experts model combining 8 specialized 7B models. Provides excellent performance across diverse tasks including reasoning, coding, and creative writing with efficient inference."
+  tags:
+    - llm
+    - mistral
+    - mixture-of-experts
+    - reasoning
+    - code-generation
+    - creative-writing
+    - chat-completion
+    - efficient
+  annotations:
+    backstage.io/managed-by-location: file:./catalog-info.yaml
+    openshift.ai/model-family: mixtral
+    openshift.ai/model-version: 8x7b-instruct
+spec:
+  type: service
+  lifecycle: production
+  owner: ai-platform-team
+  system: llm-catalog
+  links:
+    - url: https://console.redhat.com/openshift/ai/models/mixtral-8x7b-instruct/chat
+      title: "Chat Completion API"
+      icon: chat
+    - url: https://docs.mistral.ai/models/mixtral/
+      title: "Mixtral Documentation"
+      icon: docs
+    - url: https://console.redhat.com/openshift/ai/models/mixtral-8x7b-instruct/architecture
+      title: "Architecture Overview"
+      icon: architecture
+
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: claude-3-5-sonnet-api
+  title: "Claude 3.5 Sonnet API"
+  description: "REST API for Anthropic's Claude 3.5 Sonnet model providing chat completion, text generation, and reasoning capabilities"
+  tags:
+    - api
+    - claude
+    - chat-completion
+    - anthropic
+    - llm-api
+  annotations:
+    backstage.io/managed-by-location: file:./catalog-info.yaml
+    backstage.io/definition-at-location: 'text:https://console.redhat.com/openshift/ai/models/claude-3-5-sonnet/api'
+spec:
+  type: openapi
+  lifecycle: production
+  owner: ai-platform-team
+  system: llm-catalog
+  definition: |
+    openapi: 3.0.0
+    info:
+      title: Claude 3.5 Sonnet API
+      version: 1.0.0
+      description: API for Anthropic's Claude 3.5 Sonnet model
+    servers:
+      - url: https://console.redhat.com/openshift/ai/models/claude-3-5-sonnet
+        description: OpenShift AI Claude 3.5 Sonnet endpoint
+    paths:
+      /v1/chat/completions:
+        post:
+          summary: Chat Completion
+          description: Generate chat completions using Claude 3.5 Sonnet
+          requestBody:
+            required: true
+            content:
+              application/json:
+                schema:
+                  type: object
+                  properties:
+                    model:
+                      type: string
+                      example: "claude-3-5-sonnet"
+                    messages:
+                      type: array
+                      items:
+                        type: object
+                        properties:
+                          role:
+                            type: string
+                            enum: [user, assistant, system]
+                          content:
+                            type: string
+                    max_tokens:
+                      type: integer
+                      example: 1000
+                    temperature:
+                      type: number
+                      minimum: 0
+                      maximum: 1
+                      example: 0.7
+          responses:
+            '200':
+              description: Successful completion
+              content:
+                application/json:
+                  schema:
+                    type: object
+                    properties:
+                      id:
+                        type: string
+                      object:
+                        type: string
+                      created:
+                        type: integer
+                      model:
+                        type: string
+                      choices:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            index:
+                              type: integer
+                            message:
+                              type: object
+                              properties:
+                                role:
+                                  type: string
+                                content:
+                                  type: string
+                            finish_reason:
+                              type: string
+                      usage:
+                        type: object
+                        properties:
+                          prompt_tokens:
+                            type: integer
+                          completion_tokens:
+                            type: integer
+                          total_tokens:
+                            type: integer
+
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: gpt-4o-api
+  title: "GPT-4o API"
+  description: "REST API for OpenAI's GPT-4o model with multimodal capabilities including text, image, and audio processing"
+  tags:
+    - api
+    - gpt
+    - openai
+    - multimodal
+    - llm-api
+  annotations:
+    backstage.io/managed-by-location: file:./catalog-info.yaml
+    backstage.io/definition-at-location: 'text:https://console.redhat.com/openshift/ai/models/gpt-4o/api'
+spec:
+  type: openapi
+  lifecycle: production
+  owner: ai-platform-team
+  system: llm-catalog
+  definition: |
+    openapi: 3.0.0
+    info:
+      title: GPT-4o API
+      version: 1.0.0
+      description: API for OpenAI's GPT-4o multimodal model
+    servers:
+      - url: https://console.redhat.com/openshift/ai/models/gpt-4o
+        description: OpenShift AI GPT-4o endpoint
+    paths:
+      /v1/chat/completions:
+        post:
+          summary: Chat Completion
+          description: Generate chat completions using GPT-4o with multimodal support
+          requestBody:
+            required: true
+            content:
+              application/json:
+                schema:
+                  type: object
+                  properties:
+                    model:
+                      type: string
+                      example: "gpt-4o"
+                    messages:
+                      type: array
+                      items:
+                        type: object
+                        properties:
+                          role:
+                            type: string
+                            enum: [user, assistant, system]
+                          content:
+                            oneOf:
+                              - type: string
+                              - type: array
+                              items:
+                                type: object
+                                properties:
+                                  type:
+                                    type: string
+                                    enum: [text, image_url]
+                                  text:
+                                    type: string
+                                  image_url:
+                                    type: object
+                                    properties:
+                                      url:
+                                        type: string
+                    max_tokens:
+                      type: integer
+                      example: 1000
+                    temperature:
+                      type: number
+                      minimum: 0
+                      maximum: 2
+                      example: 0.7
+          responses:
+            '200':
+              description: Successful completion
+              content:
+                application/json:
+                  schema:
+                    type: object
+                    properties:
+                      id:
+                        type: string
+                      object:
+                        type: string
+                      created:
+                        type: integer
+                      model:
+                        type: string
+                      choices:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            index:
+                              type: integer
+                            message:
+                              type: object
+                              properties:
+                                role:
+                                  type: string
+                                content:
+                                  type: string
+                            finish_reason:
+                              type: string
+                      usage:
+                        type: object
+                        properties:
+                          prompt_tokens:
+                            type: integer
+                          completion_tokens:
+                            type: integer
+                          total_tokens:
+                            type: integer
+
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: llama-3-1-70b-api
+  title: "Llama 3.1 70B API"
+  description: "REST API for Meta's Llama 3.1 70B model providing chat completion and text generation capabilities"
+  tags:
+    - api
+    - llama
+    - meta
+    - open-source
+    - llm-api
+  annotations:
+    backstage.io/managed-by-location: file:./catalog-info.yaml
+    backstage.io/definition-at-location: 'text:https://console.redhat.com/openshift/ai/models/llama-3-1-70b/api'
+spec:
+  type: openapi
+  lifecycle: production
+  owner: ai-platform-team
+  system: llm-catalog
+  definition: |
+    openapi: 3.0.0
+    info:
+      title: Llama 3.1 70B API
+      version: 1.0.0
+      description: API for Meta's Llama 3.1 70B model
+    servers:
+      - url: https://console.redhat.com/openshift/ai/models/llama-3-1-70b
+        description: OpenShift AI Llama 3.1 70B endpoint
+    paths:
+      /v1/chat/completions:
+        post:
+          summary: Chat Completion
+          description: Generate chat completions using Llama 3.1 70B
+          requestBody:
+            required: true
+            content:
+              application/json:
+                schema:
+                  type: object
+                  properties:
+                    model:
+                      type: string
+                      example: "llama-3-1-70b"
+                    messages:
+                      type: array
+                      items:
+                        type: object
+                        properties:
+                          role:
+                            type: string
+                            enum: [user, assistant, system]
+                          content:
+                            type: string
+                    max_tokens:
+                      type: integer
+                      example: 1000
+                    temperature:
+                      type: number
+                      minimum: 0
+                      maximum: 1
+                      example: 0.7
+                    top_p:
+                      type: number
+                      minimum: 0
+                      maximum: 1
+                      example: 0.9
+          responses:
+            '200':
+              description: Successful completion
+              content:
+                application/json:
+                  schema:
+                    type: object
+                    properties:
+                      id:
+                        type: string
+                      object:
+                        type: string
+                      created:
+                        type: integer
+                      model:
+                        type: string
+                      choices:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            index:
+                              type: integer
+                            message:
+                              type: object
+                              properties:
+                                role:
+                                  type: string
+                                content:
+                                  type: string
+                            finish_reason:
+                              type: string
+                      usage:
+                        type: object
+                        properties:
+                          prompt_tokens:
+                            type: integer
+                          completion_tokens:
+                            type: integer
+                          total_tokens:
+                            type: integer
+
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: gemini-1-5-pro-api
+  title: "Gemini 1.5 Pro API"
+  description: "REST API for Google's Gemini 1.5 Pro model with multimodal capabilities and long context support"
+  tags:
+    - api
+    - gemini
+    - google
+    - multimodal
+    - long-context
+    - llm-api
+  annotations:
+    backstage.io/managed-by-location: file:./catalog-info.yaml
+    backstage.io/definition-at-location: 'text:https://console.redhat.com/openshift/ai/models/gemini-1-5-pro/api'
+spec:
+  type: openapi
+  lifecycle: production
+  owner: ai-platform-team
+  system: llm-catalog
+  definition: |
+    openapi: 3.0.0
+    info:
+      title: Gemini 1.5 Pro API
+      version: 1.0.0
+      description: API for Google's Gemini 1.5 Pro multimodal model
+    servers:
+      - url: https://console.redhat.com/openshift/ai/models/gemini-1-5-pro
+        description: OpenShift AI Gemini 1.5 Pro endpoint
+    paths:
+      /v1/chat/completions:
+        post:
+          summary: Chat Completion
+          description: Generate chat completions using Gemini 1.5 Pro with multimodal support
+          requestBody:
+            required: true
+            content:
+              application/json:
+                schema:
+                  type: object
+                  properties:
+                    model:
+                      type: string
+                      example: "gemini-1-5-pro"
+                    messages:
+                      type: array
+                      items:
+                        type: object
+                        properties:
+                          role:
+                            type: string
+                            enum: [user, assistant, system]
+                          content:
+                            oneOf:
+                              - type: string
+                              - type: array
+                              items:
+                                type: object
+                                properties:
+                                  type:
+                                    type: string
+                                    enum: [text, image_url]
+                                  text:
+                                    type: string
+                                  image_url:
+                                    type: object
+                                    properties:
+                                      url:
+                                        type: string
+                    max_tokens:
+                      type: integer
+                      example: 1000
+                    temperature:
+                      type: number
+                      minimum: 0
+                      maximum: 1
+                      example: 0.7
+          responses:
+            '200':
+              description: Successful completion
+              content:
+                application/json:
+                  schema:
+                    type: object
+                    properties:
+                      id:
+                        type: string
+                      object:
+                        type: string
+                      created:
+                        type: integer
+                      model:
+                        type: string
+                      choices:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            index:
+                              type: integer
+                            message:
+                              type: object
+                              properties:
+                                role:
+                                  type: string
+                                content:
+                                  type: string
+                            finish_reason:
+                              type: string
+                      usage:
+                        type: object
+                        properties:
+                          prompt_tokens:
+                            type: integer
+                          completion_tokens:
+                            type: integer
+                          total_tokens:
+                            type: integer
+
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: mistral-7b-instruct-api
+  title: "Mistral 7B Instruct API"
+  description: "REST API for Mistral AI's 7B Instruct model optimized for instruction following and code generation"
+  tags:
+    - api
+    - mistral
+    - instruction-tuned
+    - efficient
+    - llm-api
+  annotations:
+    backstage.io/managed-by-location: file:./catalog-info.yaml
+    backstage.io/definition-at-location: 'text:https://console.redhat.com/openshift/ai/models/mistral-7b-instruct/api'
+spec:
+  type: openapi
+  lifecycle: production
+  owner: ai-platform-team
+  system: llm-catalog
+  definition: |
+    openapi: 3.0.0
+    info:
+      title: Mistral 7B Instruct API
+      version: 1.0.0
+      description: API for Mistral AI's 7B Instruct model
+    servers:
+      - url: https://console.redhat.com/openshift/ai/models/mistral-7b-instruct
+        description: OpenShift AI Mistral 7B Instruct endpoint
+    paths:
+      /v1/chat/completions:
+        post:
+          summary: Chat Completion
+          description: Generate chat completions using Mistral 7B Instruct
+          requestBody:
+            required: true
+            content:
+              application/json:
+                schema:
+                  type: object
+                  properties:
+                    model:
+                      type: string
+                      example: "mistral-7b-instruct"
+                    messages:
+                      type: array
+                      items:
+                        type: object
+                        properties:
+                          role:
+                            type: string
+                            enum: [user, assistant, system]
+                          content:
+                            type: string
+                    max_tokens:
+                      type: integer
+                      example: 1000
+                    temperature:
+                      type: number
+                      minimum: 0
+                      maximum: 1
+                      example: 0.7
+          responses:
+            '200':
+              description: Successful completion
+              content:
+                application/json:
+                  schema:
+                    type: object
+                    properties:
+                      id:
+                        type: string
+                      object:
+                        type: string
+                      created:
+                        type: integer
+                      model:
+                        type: string
+                      choices:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            index:
+                              type: integer
+                            message:
+                              type: object
+                              properties:
+                                role:
+                                  type: string
+                                content:
+                                  type: string
+                            finish_reason:
+                              type: string
+                      usage:
+                        type: object
+                        properties:
+                          prompt_tokens:
+                            type: integer
+                          completion_tokens:
+                            type: integer
+                          total_tokens:
+                            type: integer
+
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: codellama-34b-api
+  title: "CodeLlama 34B API"
+  description: "REST API for Meta's CodeLlama 34B model specialized for code generation, completion, and debugging"
+  tags:
+    - api
+    - codellama
+    - meta
+    - code-generation
+    - programming
+    - llm-api
+  annotations:
+    backstage.io/managed-by-location: file:./catalog-info.yaml
+    backstage.io/definition-at-location: 'text:https://console.redhat.com/openshift/ai/models/codellama-34b/api'
+spec:
+  type: openapi
+  lifecycle: production
+  owner: ai-platform-team
+  system: llm-catalog
+  definition: |
+    openapi: 3.0.0
+    info:
+      title: CodeLlama 34B API
+      version: 1.0.0
+      description: API for Meta's CodeLlama 34B code generation model
+    servers:
+      - url: https://console.redhat.com/openshift/ai/models/codellama-34b
+        description: OpenShift AI CodeLlama 34B endpoint
+    paths:
+      /v1/chat/completions:
+        post:
+          summary: Chat Completion
+          description: Generate code completions and programming assistance using CodeLlama 34B
+          requestBody:
+            required: true
+            content:
+              application/json:
+                schema:
+                  type: object
+                  properties:
+                    model:
+                      type: string
+                      example: "codellama-34b"
+                    messages:
+                      type: array
+                      items:
+                        type: object
+                        properties:
+                          role:
+                            type: string
+                            enum: [user, assistant, system]
+                          content:
+                            type: string
+                    max_tokens:
+                      type: integer
+                      example: 2000
+                    temperature:
+                      type: number
+                      minimum: 0
+                      maximum: 1
+                      example: 0.3
+                    stop:
+                      type: array
+                      items:
+                        type: string
+                      example: ["```", "def ", "class "]
+          responses:
+            '200':
+              description: Successful completion
+              content:
+                application/json:
+                  schema:
+                    type: object
+                    properties:
+                      id:
+                        type: string
+                      object:
+                        type: string
+                      created:
+                        type: integer
+                      model:
+                        type: string
+                      choices:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            index:
+                              type: integer
+                            message:
+                              type: object
+                              properties:
+                                role:
+                                  type: string
+                                content:
+                                  type: string
+                            finish_reason:
+                              type: string
+                      usage:
+                        type: object
+                        properties:
+                          prompt_tokens:
+                            type: integer
+                          completion_tokens:
+                            type: integer
+                          total_tokens:
+                              type: integer
+
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: qwen-2-5-72b-api
+  title: "Qwen 2.5 72B API"
+  description: "REST API for Alibaba's Qwen 2.5 72B model with strong multilingual capabilities and reasoning skills"
+  tags:
+    - api
+    - qwen
+    - alibaba
+    - multilingual
+    - chinese
+    - llm-api
+  annotations:
+    backstage.io/managed-by-location: file:./catalog-info.yaml
+    backstage.io/definition-at-location: 'text:https://console.redhat.com/openshift/ai/models/qwen-2-5-72b/api'
+spec:
+  type: openapi
+  lifecycle: production
+  owner: ai-platform-team
+  system: llm-catalog
+  definition: |
+    openapi: 3.0.0
+    info:
+      title: Qwen 2.5 72B API
+      version: 1.0.0
+      description: API for Alibaba's Qwen 2.5 72B multilingual model
+    servers:
+      - url: https://console.redhat.com/openshift/ai/models/qwen-2-5-72b
+        description: OpenShift AI Qwen 2.5 72B endpoint
+    paths:
+      /v1/chat/completions:
+        post:
+          summary: Chat Completion
+          description: Generate chat completions using Qwen 2.5 72B with multilingual support
+          requestBody:
+            required: true
+            content:
+              application/json:
+                schema:
+                  type: object
+                  properties:
+                    model:
+                      type: string
+                      example: "qwen-2-5-72b"
+                    messages:
+                      type: array
+                      items:
+                        type: object
+                        properties:
+                          role:
+                            type: string
+                            enum: [user, assistant, system]
+                          content:
+                            type: string
+                    max_tokens:
+                      type: integer
+                      example: 1000
+                    temperature:
+                      type: number
+                      minimum: 0
+                      maximum: 1
+                      example: 0.7
+                    language:
+                      type: string
+                      example: "auto"
+          responses:
+            '200':
+              description: Successful completion
+              content:
+                application/json:
+                  schema:
+                    type: object
+                    properties:
+                      id:
+                        type: string
+                      object:
+                        type: string
+                      created:
+                        type: integer
+                      model:
+                        type: string
+                      choices:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            index:
+                              type: integer
+                            message:
+                              type: object
+                              properties:
+                                role:
+                                  type: string
+                                content:
+                                  type: string
+                            finish_reason:
+                              type: string
+                      usage:
+                        type: object
+                        properties:
+                          prompt_tokens:
+                            type: integer
+                          completion_tokens:
+                            type: integer
+                          total_tokens:
+                            type: integer
+
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: phi-3-medium-api
+  title: "Phi-3 Medium API"
+  description: "REST API for Microsoft's Phi-3 Medium model optimized for mobile and edge deployment with efficient inference"
+  tags:
+    - api
+    - phi
+    - microsoft
+    - efficient
+    - mobile
+    - edge-computing
+    - llm-api
+  annotations:
+    backstage.io/managed-by-location: file:./catalog-info.yaml
+    backstage.io/definition-at-location: 'text:https://console.redhat.com/openshift/ai/models/phi-3-medium/api'
+spec:
+  type: openapi
+  lifecycle: production
+  owner: ai-platform-team
+  system: llm-catalog
+  definition: |
+    openapi: 3.0.0
+    info:
+      title: Phi-3 Medium API
+      version: 1.0.0
+      description: API for Microsoft's Phi-3 Medium efficient model
+    servers:
+      - url: https://console.redhat.com/openshift/ai/models/phi-3-medium
+        description: OpenShift AI Phi-3 Medium endpoint
+    paths:
+      /v1/chat/completions:
+        post:
+          summary: Chat Completion
+          description: Generate chat completions using Phi-3 Medium with efficient inference
+          requestBody:
+            required: true
+            content:
+              application/json:
+                schema:
+                  type: object
+                  properties:
+                    model:
+                      type: string
+                      example: "phi-3-medium"
+                    messages:
+                      type: array
+                      items:
+                        type: object
+                        properties:
+                          role:
+                            type: string
+                            enum: [user, assistant, system]
+                          content:
+                            type: string
+                    max_tokens:
+                      type: integer
+                      example: 1000
+                    temperature:
+                      type: number
+                      minimum: 0
+                      maximum: 1
+                      example: 0.7
+                    stream:
+                      type: boolean
+                      example: false
+          responses:
+            '200':
+              description: Successful completion
+              content:
+                application/json:
+                  schema:
+                    type: object
+                    properties:
+                      id:
+                        type: string
+                      object:
+                        type: string
+                      created:
+                        type: integer
+                      model:
+                        type: string
+                      choices:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            index:
+                              type: integer
+                            message:
+                              type: object
+                              properties:
+                                role:
+                                  type: string
+                                content:
+                                  type: string
+                            finish_reason:
+                              type: string
+                      usage:
+                        type: object
+                        properties:
+                          prompt_tokens:
+                            type: integer
+                          completion_tokens:
+                            type: integer
+                          total_tokens:
+                            type: integer
+
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: deepseek-coder-33b-api
+  title: "DeepSeek Coder 33B API"
+  description: "REST API for DeepSeek's Coder 33B model specialized for advanced programming capabilities and code understanding"
+  tags:
+    - api
+    - deepseek-coder
+    - code-generation
+    - programming
+    - debugging
+    - llm-api
+  annotations:
+    backstage.io/managed-by-location: file:./catalog-info.yaml
+    backstage.io/definition-at-location: 'text:https://console.redhat.com/openshift/ai/models/deepseek-coder-33b/api'
+spec:
+  type: openapi
+  lifecycle: production
+  owner: ai-platform-team
+  system: llm-catalog
+  definition: |
+    openapi: 3.0.0
+    info:
+      title: DeepSeek Coder 33B API
+      version: 1.0.0
+      description: API for DeepSeek's Coder 33B specialized programming model
+    servers:
+      - url: https://console.redhat.com/openshift/ai/models/deepseek-coder-33b
+        description: OpenShift AI DeepSeek Coder 33B endpoint
+    paths:
+      /v1/chat/completions:
+        post:
+          summary: Chat Completion
+          description: Generate code completions and programming assistance using DeepSeek Coder 33B
+          requestBody:
+            required: true
+            content:
+              application/json:
+                schema:
+                  type: object
+                  properties:
+                    model:
+                      type: string
+                      example: "deepseek-coder-33b"
+                    messages:
+                      type: array
+                      items:
+                        type: object
+                        properties:
+                          role:
+                            type: string
+                            enum: [user, assistant, system]
+                          content:
+                            type: string
+                    max_tokens:
+                      type: integer
+                      example: 2000
+                    temperature:
+                      type: number
+                      minimum: 0
+                      maximum: 1
+                      example: 0.2
+                    stop:
+                      type: array
+                      items:
+                        type: string
+                      example: ["```", "def ", "class ", "function "]
+          responses:
+            '200':
+              description: Successful completion
+              content:
+                application/json:
+                  schema:
+                    type: object
+                    properties:
+                      id:
+                        type: string
+                      object:
+                        type: string
+                      created:
+                        type: integer
+                      model:
+                        type: string
+                      choices:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            index:
+                              type: integer
+                            message:
+                              type: object
+                              properties:
+                                role:
+                                  type: string
+                                content:
+                                  type: string
+                            finish_reason:
+                              type: string
+                      usage:
+                        type: object
+                        properties:
+                          prompt_tokens:
+                            type: integer
+                          completion_tokens:
+                            type: integer
+                          total_tokens:
+                            type: integer
+
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: mixtral-8x7b-instruct-api
+  title: "Mixtral 8x7B Instruct API"
+  description: "REST API for Mistral's Mixtral 8x7B Instruct mixture-of-experts model providing efficient inference across diverse tasks"
+  tags:
+    - api
+    - mixtral
+    - mixture-of-experts
+    - efficient
+    - llm-api
+  annotations:
+    backstage.io/managed-by-location: file:./catalog-info.yaml
+    backstage.io/definition-at-location: 'text:https://console.redhat.com/openshift/ai/models/mixtral-8x7b-instruct/api'
+spec:
+  type: openapi
+  lifecycle: production
+  owner: ai-platform-team
+  system: llm-catalog
+  definition: |
+    openapi: 3.0.0
+    info:
+      title: Mixtral 8x7B Instruct API
+      version: 1.0.0
+      description: API for Mistral's Mixtral 8x7B Instruct mixture-of-experts model
+    servers:
+      - url: https://console.redhat.com/openshift/ai/models/mixtral-8x7b-instruct
+        description: OpenShift AI Mixtral 8x7B Instruct endpoint
+    paths:
+      /v1/chat/completions:
+        post:
+          summary: Chat Completion
+          description: Generate chat completions using Mixtral 8x7B Instruct mixture-of-experts model
+          requestBody:
+            required: true
+            content:
+              application/json:
+                schema:
+                  type: object
+                  properties:
+                    model:
+                      type: string
+                      example: "mixtral-8x7b-instruct"
+                    messages:
+                      type: array
+                      items:
+                        type: object
+                        properties:
+                          role:
+                            type: string
+                            enum: [user, assistant, system]
+                          content:
+                            type: string
+                    max_tokens:
+                      type: integer
+                      example: 1000
+                    temperature:
+                      type: number
+                      minimum: 0
+                      maximum: 1
+                      example: 0.7
+                    top_p:
+                      type: number
+                      minimum: 0
+                      maximum: 1
+                      example: 0.9
+          responses:
+            '200':
+              description: Successful completion
+              content:
+                application/json:
+                  schema:
+                    type: object
+                    properties:
+                      id:
+                        type: string
+                      object:
+                        type: string
+                      created:
+                        type: integer
+                      model:
+                        type: string
+                      choices:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            index:
+                              type: integer
+                            message:
+                              type: object
+                              properties:
+                                role:
+                                  type: string
+                                content:
+                                  type: string
+                            finish_reason:
+                              type: string
+                      usage:
+                        type: object
+                        properties:
+                          prompt_tokens:
+                            type: integer
+                          completion_tokens:
+                            type: integer
+                          total_tokens:
+                            type: integer
