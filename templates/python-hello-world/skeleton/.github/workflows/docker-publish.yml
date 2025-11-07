@@ -12,12 +12,9 @@ jobs:
     permissions:
       contents: read
 
-    # Note: Backstage will replace `${{ values.* }}` at scaffold time.
-    # GitHub runtime expressions like `${{ github.* }}` remain for the action run.
-
-    # Expose PR number for PR events; empty on normal pushes.
+    # PR number is only present on PR events; keep the expression for runtime.
     env:
-      PR_NUMBER: ${{ github.event.pull_request.number }}
+      PR_NUMBER: {% raw %}${{ github.event.pull_request.number }}{% endraw %}
 
     steps:
       - name: Checkout code
@@ -49,12 +46,12 @@ jobs:
       - name: Build container image with Buildah
         uses: redhat-actions/buildah-build@v2
         with:
-          # Backstage scaffolds this at repo creation (e.g., "myorg/myapp")
-          image: ${{ values.appName }}
+          # Backstage will scaffold this value at template time
+          image: {{ values.appName }}
           # Provide both the human-friendly tag and the short SHA tag
           tags: |
-            ${{ steps.imagetag.outputs.tag }}
-            ${{ steps.imagetag.outputs.sha_tag }}
+            {% raw %}${{ steps.imagetag.outputs.tag }}{% endraw %}
+            {% raw %}${{ steps.imagetag.outputs.sha_tag }}{% endraw %}
           containerfiles: |
             ./Dockerfile
 
@@ -62,11 +59,11 @@ jobs:
         if: github.event_name != 'pull_request'
         uses: redhat-actions/push-to-registry@v2
         with:
-          # Backstage scaffolds this too (e.g., "quay.io/myorg/myapp")
-          image: ${{ values.quayRepo }}
+          # Backstage will scaffold this value at template time
+          image: {{ values.quayRepo }}
           tags: |
-            ${{ steps.imagetag.outputs.tag }}
-            ${{ steps.imagetag.outputs.sha_tag }}
-          username: ${{ secrets.QUAY_USERNAME }}
-          password: ${{ secrets.QUAY_PASSWORD }}
+            {% raw %}${{ steps.imagetag.outputs.tag }}{% endraw %}
+            {% raw %}${{ steps.imagetag.outputs.sha_tag }}{% endraw %}
+          username: {% raw %}${{ secrets.QUAY_USERNAME }}{% endraw %}
+          password: {% raw %}${{ secrets.QUAY_PASSWORD }}{% endraw %}
           registry: quay.io
