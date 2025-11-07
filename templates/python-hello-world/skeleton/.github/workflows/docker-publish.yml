@@ -19,7 +19,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Set up image tag
-        id: image-tag
+        id: imagetag
         env:
           GITHUB_EVENT_NAME: ${{ github.event_name }}
           GITHUB_REF: ${{ github.ref }}
@@ -45,7 +45,7 @@ jobs:
         uses: redhat-actions/buildah-build@v2
         with:
           image: ${{ values.appName }}
-          tags: ${{ steps.image-tag.outputs.tag }} ${{ steps.image-tag.outputs.sha-tag }}
+          tags: ${{ steps.imagetag.outputs.tag }} ${{ steps.imagetag.outputs.sha-tag }}
           containerfiles: |
             ./Dockerfile
 
@@ -54,7 +54,7 @@ jobs:
         uses: redhat-actions/push-to-registry@v2
         with:
           image: ${{ values.quayRepo }}
-          tags: ${{ steps.image-tag.outputs.tag }} ${{ steps.image-tag.outputs.sha-tag }}
+          tags: ${{ steps.imagetag.outputs.tag }} ${{ steps.imagetag.outputs.sha-tag }}
           username: ${{ secrets.QUAY_USERNAME }}
           password: ${{ secrets.QUAY_PASSWORD }}
           registry: quay.io
