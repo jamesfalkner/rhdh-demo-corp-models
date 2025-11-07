@@ -62,6 +62,7 @@ spec:
       name: Publish to GitHub
       action: publish:github
       input:
+        visibility: public
         description: ${{ parameters.description }}
         repoUrl: github.com?owner=${{ parameters.githubOrg }}&repo=${{ parameters.appName }}
         defaultBranch: main
