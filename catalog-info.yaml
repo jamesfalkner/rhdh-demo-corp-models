@@ -1800,6 +1800,5 @@ metadata:
   name: templates-location
   description: Location for discovering all templates in the templates/ directory
 spec:
-  type: file
   targets:
     - ./templates/**/template.yaml
