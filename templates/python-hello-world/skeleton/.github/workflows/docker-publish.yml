@@ -60,10 +60,8 @@ jobs:
         uses: redhat-actions/push-to-registry@v2
         with:
           # Backstage will scaffold this value at template time
-          image: ${{ values.quayRepo }}
           tags: |
-            {% raw %}${{ steps.imagetag.outputs.tag }}{% endraw %}
-            {% raw %}${{ steps.imagetag.outputs.sha_tag }}{% endraw %}
+            ${{ values.quayRepo }}:{% raw %}${{ steps.imagetag.outputs.tag }}{% endraw %}
+            ${{ values.quayRepo }}:{% raw %}${{ steps.imagetag.outputs.sha_tag }}{% endraw %}
           username: {% raw %}${{ secrets.QUAY_USERNAME }}{% endraw %}
           password: {% raw %}${{ secrets.QUAY_PASSWORD }}{% endraw %}
-          registry: quay.io
