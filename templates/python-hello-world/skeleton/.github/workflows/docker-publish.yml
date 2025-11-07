@@ -1,0 +1,49 @@
+name: Build and Push Container Image
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build-and-push:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up image tag
+        id: image-tag
+        run: |
+          if [ "${{ github.event_name }}" = "pull_request" ]; then
+            echo "tag=pr-${{ github.event.pull_request.number }}" >> $GITHUB_OUTPUT
+          elif [ "${{ github.ref }}" = "refs/heads/main" ]; then
+            echo "tag=latest" >> $GITHUB_OUTPUT
+          else
+            echo "tag=${{ github.ref_name }}-${{ github.sha }}" >> $GITHUB_OUTPUT
+          fi
+          echo "sha-tag=${{ github.sha }}" >> $GITHUB_OUTPUT
+
+      - name: Build container image with Buildah
+        uses: redhat-actions/buildah-build@v2
+        with:
+          image: ${{ values.appName }}
+          tags: ${{ steps.image-tag.outputs.tag }} ${{ steps.image-tag.outputs.sha-tag }}
+          containerfiles: |
+            ./Dockerfile
+
+      - name: Push container image to Quay.io
+        if: github.event_name != 'pull_request'
+        uses: redhat-actions/push-to-registry@v2
+        with:
+          image: ${{ values.quayRepo }}
+          tags: ${{ steps.image-tag.outputs.tag }} ${{ steps.image-tag.outputs.sha-tag }}
+          username: ${{ secrets.QUAY_USERNAME }}
+          password: ${{ secrets.QUAY_PASSWORD }}
+          registry: quay.io

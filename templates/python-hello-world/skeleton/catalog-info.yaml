@@ -1,0 +1,21 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: ${{ values.appName }}
+  description: ${{ values.description }}
+  tags:
+    - python
+    - docker
+    - github-actions
+    - flask
+    - web
+  annotations:
+    github.com/project-slug: ${{ values.githubOrg }}/${{ values.appName }}
+    quay.io/repository-slug: ${{ values.quayRepo }}
+    devspaces.io/open-url: '${{ values.devspacesUrl }}#https://github.com/${{ values.githubOrg }}/${{ values.appName }}'
+spec:
+  type: service
+  lifecycle: production
+  owner: platform-team
+  system: ai-platform
+

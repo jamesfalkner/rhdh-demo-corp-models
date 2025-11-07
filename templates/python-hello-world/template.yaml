@@ -1,0 +1,88 @@
+apiVersion: scaffolder.backstage.io/v1beta3
+kind: Template
+metadata:
+  name: python-hello-world
+  title: Python Web Application
+  description: Scaffolds a new Python web application with Flask, Docker and GitHub Actions for building and pushing to Quay.io
+  tags:
+    - python
+    - docker
+    - github-actions
+    - quay
+spec:
+  owner: platform-team
+  type: service
+
+  parameters:
+    - title: Application Details
+      required:
+        - appName
+      properties:
+        appName:
+          title: Application Name
+          type: string
+          description: Unique name for the application (will be used as repository name)
+          pattern: '^[a-zA-Z][a-zA-Z0-9_-]+$'
+          ui:autofocus: true
+        githubOrg:
+          title: GitHub Organization
+          type: string
+          description: GitHub organization where the repository will be created
+          default: jhf-lightspeed
+        quayRepo:
+          title: Quay Repository
+          type: string
+          description: Quay.io repository location (e.g., quay.io/username/repo)
+          default: quay.io/jfalkner1/app
+        description:
+          title: Description
+          type: string
+          description: Description of the application
+          default: A Python web application displaying data from public APIs
+        devspacesUrl:
+          title: OpenShift DevSpaces URL
+          type: string
+          description: Base URL for OpenShift DevSpaces instance (e.g., https://devspaces.apps.example.com)
+          default: https://devspaces.apps.example.com
+
+  steps:
+    - id: fetch
+      name: Fetch Template
+      action: fetch:template
+      input:
+        url: ./skeleton
+        values:
+          appName: ${{ parameters.appName }}
+          githubOrg: ${{ parameters.githubOrg }}
+          quayRepo: ${{ parameters.quayRepo }}
+          description: ${{ parameters.description }}
+          devspacesUrl: ${{ parameters.devspacesUrl }}
+
+    - id: publish
+      name: Publish to GitHub
+      action: publish:github
+      input:
+        allowedHosts:
+          - github.com
+        description: ${{ parameters.description }}
+        repoUrl: github.com?owner=${{ parameters.githubOrg }}&repo=${{ parameters.appName }}
+        defaultBranch: main
+
+    - id: register
+      name: Register Component
+      action: catalog:register
+      input:
+        repoContentsUrl: ${{ steps.publish.output.repoContentsUrl }}
+        catalogInfoPath: '/catalog-info.yaml'
+
+  output:
+    links:
+      - title: Repository
+        url: ${{ steps.publish.output.remoteUrl }}
+      - title: Open in catalog
+        icon: catalog
+        entityRef: ${{ steps.register.output.entityRef }}
+      - title: Open in DevSpaces
+        url: ${{ parameters.devspacesUrl }}#${{ steps.publish.output.remoteUrl }}
+        icon: code
+

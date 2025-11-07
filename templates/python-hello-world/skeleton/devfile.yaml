@@ -1,0 +1,48 @@
+schemaVersion: 2.2.0
+metadata:
+  name: ${{ values.appName }}
+  displayName: ${{ values.appName }}
+  description: ${{ values.description }}
+  projectType: python
+  language: python
+  tags:
+    - Python
+    - Flask
+    - Web
+components:
+  - name: python
+    container:
+      image: quay.io/devfile/python:3.11
+      memoryLimit: 1Gi
+      cpuLimit: 1
+      mountSources: true
+      endpoints:
+        - name: http
+          targetPort: 8080
+          exposure: public
+          protocol: http
+          path: /
+      env:
+        - name: PORT
+          value: "8080"
+        - name: FLASK_ENV
+          value: "development"
+commands:
+  - id: install
+    exec:
+      component: python
+      commandLine: pip install -r requirements.txt
+      workingDir: ${PROJECT_SOURCE}
+      group:
+        kind: build
+        isDefault: true
+  - id: run
+    exec:
+      component: python
+      commandLine: python app.py
+      workingDir: ${PROJECT_SOURCE}
+      group:
+        kind: run
+        isDefault: true
+      hotReloadCapable: true
+
