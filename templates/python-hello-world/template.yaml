@@ -80,7 +80,7 @@ spec:
         defaultBranch: main
         secrets:
           QUAY_USERNAME: ${{ parameters.quayUsername }}
-          QUAY_PASSWORD: ${{ parameters.quayToken }}
+          QUAY_PASSWORD: ${{ secrets.quayToken }}
 
     - id: register
       name: Register Component
