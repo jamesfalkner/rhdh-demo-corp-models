@@ -13,6 +13,10 @@ components:
   - name: python
     container:
       image: registry.access.redhat.com/ubi9/python-311:latest
+      args:
+        - tail
+        - '-f'
+        - /dev/null
       memoryLimit: 1Gi
       cpuLimit: "1"
       mountSources: true
