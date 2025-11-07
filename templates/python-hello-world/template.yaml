@@ -9,6 +9,11 @@ metadata:
     - docker
     - github-actions
     - quay
+  links:
+    - title: Open in DevSpaces
+      url: ${{ parameters.devspacesUrl }}#${{ steps.publish.output.remoteUrl }}
+      icon: dashboard
+
 spec:
   owner: platform-team
   type: service
@@ -91,8 +96,9 @@ spec:
 
   output:
     links:
-      - title: Repository
+      - title: Source Code Repository
         url: ${{ steps.publish.output.remoteUrl }}
+        icon: github
       - title: Open in catalog
         icon: catalog
         entityRef: ${{ steps.register.output.entityRef }}
