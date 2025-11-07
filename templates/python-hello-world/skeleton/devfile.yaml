@@ -14,7 +14,7 @@ components:
     container:
       image: quay.io/devfile/python:3.11
       memoryLimit: 1Gi
-      cpuLimit: 1
+      cpuLimit: "1"
       mountSources: true
       endpoints:
         - name: http
