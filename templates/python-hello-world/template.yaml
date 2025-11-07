@@ -17,6 +17,8 @@ spec:
     - title: Application Details
       required:
         - appName
+        - quayUsername
+        - quayToken
       properties:
         appName:
           title: Application Name
@@ -34,6 +36,15 @@ spec:
           type: string
           description: Quay.io repository location (e.g., quay.io/username/repo)
           default: quay.io/jfalkner1/app
+        quayUsername:
+          title: Quay.io Username
+          type: string
+          description: Your Quay.io username (will be stored as QUAY_USERNAME secret)
+        quayToken:
+          title: Quay.io Token
+          type: string
+          description: Your Quay.io access token or password (will be stored as QUAY_PASSWORD secret)
+          ui:secret: true
         description:
           title: Description
           type: string
@@ -63,9 +74,13 @@ spec:
       action: publish:github
       input:
         repoVisibility: public
+        protectDefaultBranch: false
         description: ${{ parameters.description }}
         repoUrl: github.com?owner=${{ parameters.githubOrg }}&repo=${{ parameters.appName }}
         defaultBranch: main
+        secrets:
+          QUAY_USERNAME: ${{ parameters.quayUsername }}
+          QUAY_PASSWORD: ${{ parameters.quayToken }}
 
     - id: register
       name: Register Component

@@ -86,10 +86,12 @@ This project includes a GitHub Actions workflow that automatically builds and pu
 
 ### Required Secrets
 
-Configure the following secrets in your GitHub repository:
+The following secrets are automatically created in your GitHub repository during scaffolding:
 
 - `QUAY_USERNAME`: Your Quay.io username
 - `QUAY_PASSWORD`: Your Quay.io password or token
+
+These secrets are configured when you use the Backstage template and provide your Quay.io credentials. The GitHub Actions workflow will use these secrets to authenticate with Quay.io when building and pushing container images.
 
 ### Image Location
 

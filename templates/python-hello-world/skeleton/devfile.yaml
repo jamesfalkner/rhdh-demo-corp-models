@@ -12,7 +12,7 @@ metadata:
 components:
   - name: python
     container:
-      image: quay.io/devfile/python:3.11
+      image: registry.access.redhat.com/ubi9/python-311:latest
       memoryLimit: 1Gi
       cpuLimit: "1"
       mountSources: true
