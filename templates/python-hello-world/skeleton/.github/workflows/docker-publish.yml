@@ -47,7 +47,7 @@ jobs:
         uses: redhat-actions/buildah-build@v2
         with:
           # Backstage will scaffold this value at template time
-          image: {{ values.appName }}
+          image: ${{ values.appName }}
           # Provide both the human-friendly tag and the short SHA tag
           tags: |
             {% raw %}${{ steps.imagetag.outputs.tag }}{% endraw %}
@@ -60,7 +60,7 @@ jobs:
         uses: redhat-actions/push-to-registry@v2
         with:
           # Backstage will scaffold this value at template time
-          image: {{ values.quayRepo }}
+          image: ${{ values.quayRepo }}
           tags: |
             {% raw %}${{ steps.imagetag.outputs.tag }}{% endraw %}
             {% raw %}${{ steps.imagetag.outputs.sha_tag }}{% endraw %}
