@@ -2,11 +2,9 @@ name: Build and Push Container Image
 
 on:
   push:
-    branches:
-      - main
+    branches: [ main ]
   pull_request:
-    branches:
-      - main
+    branches: [ main ]
 
 jobs:
   build-and-push:
@@ -14,33 +12,49 @@ jobs:
     permissions:
       contents: read
 
+    # Note: Backstage will replace `${{ values.* }}` at scaffold time.
+    # GitHub runtime expressions like `${{ github.* }}` remain for the action run.
+
+    # Expose PR number for PR events; empty on normal pushes.
+    env:
+      PR_NUMBER: ${{ github.event.pull_request.number }}
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
 
       - name: Set up image tag
         id: imagetag
+        shell: bash
         run: |
+          set -euo pipefail
+
           SHORT_SHA="${GITHUB_SHA::7}"
-      
-          if [[ "${GITHUB_EVENT_NAME}" == "pull_request" && -n "${PR_NUMBER}" ]]; then
+
+          if [[ "${GITHUB_EVENT_NAME}" == "pull_request" && -n "${PR_NUMBER:-}" ]]; then
             TAG="pr-${PR_NUMBER}"
           elif [[ "${GITHUB_REF}" == "refs/heads/main" ]]; then
             TAG="latest"
-          elif [[ -n "${GITHUB_REF_NAME}" ]]; then
+          elif [[ -n "${GITHUB_REF_NAME:-}" ]]; then
             TAG="${GITHUB_REF_NAME}-${SHORT_SHA}"
           else
             TAG="${SHORT_SHA}"
           fi
-      
-          echo "tag=${TAG}" >> "$GITHUB_OUTPUT"
-          echo "sha-tag=${SHORT_SHA}" >> "$GITHUB_OUTPUT"
-      
+
+          {
+            echo "tag=${TAG}"
+            echo "sha_tag=${SHORT_SHA}"
+          } >> "$GITHUB_OUTPUT"
+
       - name: Build container image with Buildah
         uses: redhat-actions/buildah-build@v2
         with:
+          # Backstage scaffolds this at repo creation (e.g., "myorg/myapp")
           image: ${{ values.appName }}
-          tags: ${{ steps.imagetag.outputs.tag }} ${{ steps.imagetag.outputs.sha-tag }}
+          # Provide both the human-friendly tag and the short SHA tag
+          tags: |
+            ${{ steps.imagetag.outputs.tag }}
+            ${{ steps.imagetag.outputs.sha_tag }}
           containerfiles: |
             ./Dockerfile
 
@@ -48,8 +62,11 @@ jobs:
         if: github.event_name != 'pull_request'
         uses: redhat-actions/push-to-registry@v2
         with:
+          # Backstage scaffolds this too (e.g., "quay.io/myorg/myapp")
           image: ${{ values.quayRepo }}
-          tags: ${{ steps.imagetag.outputs.tag }} ${{ steps.imagetag.outputs.sha-tag }}
+          tags: |
+            ${{ steps.imagetag.outputs.tag }}
+            ${{ steps.imagetag.outputs.sha_tag }}
           username: ${{ secrets.QUAY_USERNAME }}
           password: ${{ secrets.QUAY_PASSWORD }}
           registry: quay.io
