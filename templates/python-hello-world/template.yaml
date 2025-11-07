@@ -44,7 +44,7 @@ spec:
           title: Quay.io Token
           type: string
           description: Your Quay.io access token or password (will be stored as QUAY_PASSWORD secret)
-          ui:widget: password
+          ui:field: Secret
         description:
           title: Description
           type: string
