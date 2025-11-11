@@ -9,11 +9,6 @@ metadata:
     - docker
     - github-actions
     - quay
-  links:
-    - title: Open in DevSpaces
-      url: https://${{ parameters.devspacesHost }}#${{ steps.publish.output.remoteUrl }}
-      icon: dashboard
-
 spec:
   owner: platform-team
   type: service
