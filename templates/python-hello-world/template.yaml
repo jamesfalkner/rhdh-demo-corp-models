@@ -55,11 +55,11 @@ spec:
           type: string
           description: Description of the application
           default: A Python web application displaying data from public APIs
-        devspacesUrl:
-          title: OpenShift DevSpaces URL
+        devspacesHost:
+          title: OpenShift DevSpaces FQDN
           type: string
-          description: Base URL for OpenShift DevSpaces instance (e.g., https://devspaces.apps.example.com)
-          default: https://devspaces.apps.example.com
+          description: Base Hostname for OpenShift DevSpaces instance (e.g., devspaces.apps.example.com)
+          default: devspaces.apps.example.com
 
   steps:
     - id: fetch
@@ -103,6 +103,6 @@ spec:
         icon: catalog
         entityRef: ${{ steps.register.output.entityRef }}
       - title: Open in DevSpaces
-        url: ${{ parameters.devspacesUrl }}#${{ steps.publish.output.remoteUrl }}
+        url: https://${{ parameters.devspacesHost }}#${{ steps.publish.output.remoteUrl }}
         icon: code
 
