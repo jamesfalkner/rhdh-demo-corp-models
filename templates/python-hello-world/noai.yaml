@@ -1,0 +1,102 @@
+apiVersion: scaffolder.backstage.io/v1beta3
+kind: Template
+metadata:
+  name: python-hello-world
+  title: Python Web Application
+  description: Scaffolds a new Python web application with Flask, Docker and GitHub Actions for building and pushing to Quay.io
+  tags:
+    - python
+    - docker
+    - github-actions
+    - quay
+spec:
+  owner: platform-team
+  type: service
+
+  parameters:
+    - title: Application Details
+      required:
+        - appName
+        - quayUsername
+        - quayToken
+      properties:
+        appName:
+          title: Application Name
+          type: string
+          description: Unique name for the application (will be used as repository name)
+          pattern: '^[a-zA-Z][a-zA-Z0-9_-]+$'
+          ui:autofocus: true
+        githubOrg:
+          title: GitHub Organization
+          type: string
+          description: GitHub organization where the repository will be created
+          default: jhf-lightspeed
+        quayRepo:
+          title: Quay Repository
+          type: string
+          description: Quay.io repository location (e.g., quay.io/username/repo)
+          default: quay.io/jfalkner1/app
+        quayUsername:
+          title: Quay.io Username
+          type: string
+          description: Your Quay.io username (will be stored as QUAY_USERNAME secret)
+        quayToken:
+          title: Quay.io Token
+          type: string
+          description: Your Quay.io access token or password (will be stored as QUAY_PASSWORD secret)
+          ui:field: Secret
+        description:
+          title: Description
+          type: string
+          description: Description of the application
+          default: A Python web application displaying data from public APIs
+        devspacesHost:
+          title: OpenShift DevSpaces FQDN
+          type: string
+          description: Base Hostname for OpenShift DevSpaces instance (e.g., devspaces.apps.example.com)
+          default: devspaces.apps.example.com
+
+  steps:
+    - id: fetch
+      name: Fetch Template
+      action: fetch:template
+      input:
+        url: ./skeleton
+        values:
+          appName: ${{ parameters.appName }}
+          githubOrg: ${{ parameters.githubOrg }}
+          quayRepo: ${{ parameters.quayRepo }}
+          description: ${{ parameters.description }}
+          devspacesUrl: ${{ parameters.devspacesUrl }}
+
+    - id: publish
+      name: Publish to GitHub
+      action: publish:github
+      input:
+        repoVisibility: public
+        protectDefaultBranch: false
+        description: ${{ parameters.description }}
+        repoUrl: github.com?owner=${{ parameters.githubOrg }}&repo=${{ parameters.appName }}
+        defaultBranch: main
+        secrets:
+          QUAY_USERNAME: ${{ parameters.quayUsername }}
+          QUAY_PASSWORD: ${{ secrets.quayToken }}
+
+    - id: register
+      name: Register Component
+      action: catalog:register
+      input:
+        repoContentsUrl: ${{ steps.publish.output.repoContentsUrl }}
+        catalogInfoPath: '/catalog-info.yaml'
+
+  output:
+    links:
+      - title: Source Code Repository
+        url: ${{ steps.publish.output.remoteUrl }}
+        icon: github
+      - title: Open in catalog
+        icon: catalog
+        entityRef: ${{ steps.register.output.entityRef }}
+      - title: Open in DevSpaces
+        url: https://${{ parameters.devspacesHost }}#${{ steps.publish.output.remoteUrl }}
+        icon: code
