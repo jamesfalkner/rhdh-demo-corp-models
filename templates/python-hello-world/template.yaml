@@ -19,6 +19,8 @@ spec:
         - appName
         - quayUsername
         - quayToken
+        - llm
+        - apiKey
       properties:
         appName:
           title: Application Name
@@ -55,6 +57,20 @@ spec:
           type: string
           description: Base Hostname for OpenShift DevSpaces instance (e.g., devspaces.apps.example.com)
           default: devspaces.apps.example.com
+        llm:
+          title: Select LLM
+          type: string
+          description: Choose an LLM from the catalog
+          ui:field: EntityPicker
+          ui:options:
+            catalogFilter:
+              kind: Component
+              'metadata.tags': ['llm']
+        apiKey:
+          title: API Key
+          type: string
+          description: Your API key for accessing the LLM (will be stored as API_KEY secret)
+          ui:field: Secret
 
   steps:
     - id: fetch
@@ -81,6 +97,7 @@ spec:
         secrets:
           QUAY_USERNAME: ${{ parameters.quayUsername }}
           QUAY_PASSWORD: ${{ secrets.quayToken }}
+          API_KEY: ${{ secrets.apiKey }}
 
     - id: register
       name: Register Component
@@ -100,4 +117,3 @@ spec:
       - title: Open in DevSpaces
         url: https://${{ parameters.devspacesHost }}#${{ steps.publish.output.remoteUrl }}
         icon: code
-
